@@ -40,6 +40,8 @@ def calc(p, z, c, d, cup=None, flag=False):
     if cup != None:
         if cup == "ENVIO10":
             t = t - t * 0.10
+        else:
+            raise ValueError("cupón inválido")
     if t < 5000:
         t = 5000
     if flag:
