@@ -1,0 +1,129 @@
+$ python -m pytest --tb=short -q   (detalle de los fallos)
+.......F.F..F..........F.....F..FF.F.F.....FF.F..FFFFFFFF                [100%]
+================================== FAILURES ===================================
+________________________ test_CB_08_zona_que_no_existe ________________________
+tests\test_caja_blanca.py:55: in test_CB_08_zona_que_no_existe
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+________________________ test_CB_10_cliente_frecuente _________________________
+tests\test_caja_blanca.py:66: in test_CB_10_cliente_frecuente
+    assert calc(5, "urbana", "frecuente", 1) == 8600
+E   AssertionError: assert 8500 == 8600
+E    +  where 8500 = calc(5, 'urbana', 'frecuente', 1)
+_______________________ test_CB_13_cupon_que_no_existe ________________________
+tests\test_caja_blanca.py:82: in test_CB_13_cupon_que_no_existe
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+_________________________ test_costo_esperado[CN-11] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 36900 == 37000
+E    +  where 36900 = calc(44.99, 'urbana', 'normal', 1, None)
+_________________________ test_costo_esperado[CN-21] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 9000 == 11000
+E    +  where 9000 = calc(5, 'urbana', 'normal', 6, None)
+_________________________ test_costo_esperado[CN-25] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 8500 == 8600
+E    +  where 8500 = calc(5, 'urbana', 'frecuente', 1, None)
+_________________________ test_costo_esperado[CN-26] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 7600 == 7700
+E    +  where 7600 = calc(5, 'urbana', 'frecuente', 1, 'ENVIO10')
+_________________________ test_costo_esperado[CN-28] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 7200 == 7300
+E    +  where 7200 = calc(5, 'urbana', 'vip', 1, 'ENVIO10')
+_________________________ test_costo_esperado[CN-30] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 10400 == 10500
+E    +  where 10400 = calc(5, 'urbana', 'frecuente', 7, None)
+_________________________ test_costo_esperado[CN-38] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 8700 == 10400
+E    +  where 8700 = calc(4, 'rural', 'vip', 6, 'ENVIO10')
+_________________________ test_costo_esperado[CN-39] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 13300 == 15000
+E    +  where 13300 = calc(12.5, 'nacional', 'vip', 6, 'ENVIO10')
+_________________________ test_costo_esperado[CN-41] __________________________
+tests\test_caja_negra.py:80: in test_costo_esperado
+    assert calc(peso, zona, cliente, dia, cupon) == esperado
+E   AssertionError: assert 6800 == 8700
+E    +  where 6800 = calc(3, 'rural', 'frecuente', 6, None)
+__________________ test_entrada_invalida_lanza_error[CN-13] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-14] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-17] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-18] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-23] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-34] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+__________________ test_entrada_invalida_lanza_error[CN-35] ___________________
+tests\test_caja_negra.py:89: in test_entrada_invalida_lanza_error
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+_____________________ test_CN_42_mensaje_de_peso_invalido _____________________
+tests\test_caja_negra.py:97: in test_CN_42_mensaje_de_peso_invalido
+    assert str(error.value) == "peso inválido"
+E   AssertionError: assert 'peso invalido' == 'peso inválido'
+E     
+E     - peso inválido
+E     ?         ^
+E     + peso invalido
+E     ?         ^
+=========================== short test summary info ===========================
+FAILED tests/test_caja_blanca.py::test_CB_08_zona_que_no_existe - Failed: DID...
+FAILED tests/test_caja_blanca.py::test_CB_10_cliente_frecuente - AssertionErr...
+FAILED tests/test_caja_blanca.py::test_CB_13_cupon_que_no_existe - Failed: DI...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-11] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-21] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-25] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-26] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-28] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-30] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-38] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-39] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-41] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-13] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-14] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-17] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-18] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-23] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-34] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-35] - F...
+FAILED tests/test_caja_negra.py::test_CN_42_mensaje_de_peso_invalido - Assert...
+20 failed, 37 passed in 0.20s

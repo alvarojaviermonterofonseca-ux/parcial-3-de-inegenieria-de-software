@@ -1,0 +1,17 @@
+$ python -m radon cc -s envios.py
+envios.py
+    F 13:0 calc - C (15)
+
+$ python -m radon raw envios.py
+envios.py
+    LOC: 42
+    LLOC: 31
+    SLOC: 37
+    Comments: 8
+    Single comments: 2
+    Multi: 0
+    Blank: 3
+    - Comment Stats
+        (C % L): 19%
+        (C % S): 22%
+        (C + M % L): 19%

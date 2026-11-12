@@ -1,0 +1,155 @@
+$ git describe --tags
+v1.0.0
+$ python -m pytest -v --tb=line --cov=envios --cov-branch --cov-report=term-missing
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Acer\AppData\Local\Programs\Python\Python314\python.exe
+rootdir: C:\Users\Acer\Downloads\parcial de ingeneria\repo
+configfile: pytest.ini
+testpaths: tests
+plugins: cov-7.1.0
+collecting ... collected 57 items
+
+tests/test_caja_blanca.py::test_CB_01_peso_cero_lanza_error PASSED       [  1%]
+tests/test_caja_blanca.py::test_CB_02_peso_sobre_el_tope_del_codigo_lanza_error PASSED [  3%]
+tests/test_caja_blanca.py::test_CB_03_camino_base PASSED                 [  5%]
+tests/test_caja_blanca.py::test_CB_04_tramo_1 PASSED                     [  7%]
+tests/test_caja_blanca.py::test_CB_05_tramo_3 PASSED                     [  8%]
+tests/test_caja_blanca.py::test_CB_06_zona_rural PASSED                  [ 10%]
+tests/test_caja_blanca.py::test_CB_07_zona_nacional PASSED               [ 12%]
+tests/test_caja_blanca.py::test_CB_08_zona_que_no_existe FAILED          [ 14%]
+tests/test_caja_blanca.py::test_CB_09_fin_de_semana PASSED               [ 15%]
+tests/test_caja_blanca.py::test_CB_10_cliente_frecuente FAILED           [ 17%]
+tests/test_caja_blanca.py::test_CB_11_cliente_vip PASSED                 [ 19%]
+tests/test_caja_blanca.py::test_CB_12_cupon_envio10 PASSED               [ 21%]
+tests/test_caja_blanca.py::test_CB_13_cupon_que_no_existe FAILED         [ 22%]
+tests/test_caja_blanca.py::test_CB_14_costo_minimo PASSED                [ 24%]
+tests/test_caja_blanca.py::test_CB_15_flag_imprime_el_costo PASSED       [ 26%]
+tests/test_caja_negra.py::test_costo_esperado[CN-03] PASSED              [ 28%]
+tests/test_caja_negra.py::test_costo_esperado[CN-04] PASSED              [ 29%]
+tests/test_caja_negra.py::test_costo_esperado[CN-05] PASSED              [ 31%]
+tests/test_caja_negra.py::test_costo_esperado[CN-06] PASSED              [ 33%]
+tests/test_caja_negra.py::test_costo_esperado[CN-07] PASSED              [ 35%]
+tests/test_caja_negra.py::test_costo_esperado[CN-08] PASSED              [ 36%]
+tests/test_caja_negra.py::test_costo_esperado[CN-09] PASSED              [ 38%]
+tests/test_caja_negra.py::test_costo_esperado[CN-10] PASSED              [ 40%]
+tests/test_caja_negra.py::test_costo_esperado[CN-11] FAILED              [ 42%]
+tests/test_caja_negra.py::test_costo_esperado[CN-12] PASSED              [ 43%]
+tests/test_caja_negra.py::test_costo_esperado[CN-15] PASSED              [ 45%]
+tests/test_caja_negra.py::test_costo_esperado[CN-16] PASSED              [ 47%]
+tests/test_caja_negra.py::test_costo_esperado[CN-19] PASSED              [ 49%]
+tests/test_caja_negra.py::test_costo_esperado[CN-20] PASSED              [ 50%]
+tests/test_caja_negra.py::test_costo_esperado[CN-21] FAILED              [ 52%]
+tests/test_caja_negra.py::test_costo_esperado[CN-22] PASSED              [ 54%]
+tests/test_caja_negra.py::test_costo_esperado[CN-24] PASSED              [ 56%]
+tests/test_caja_negra.py::test_costo_esperado[CN-25] FAILED              [ 57%]
+tests/test_caja_negra.py::test_costo_esperado[CN-26] FAILED              [ 59%]
+tests/test_caja_negra.py::test_costo_esperado[CN-27] PASSED              [ 61%]
+tests/test_caja_negra.py::test_costo_esperado[CN-28] FAILED              [ 63%]
+tests/test_caja_negra.py::test_costo_esperado[CN-29] PASSED              [ 64%]
+tests/test_caja_negra.py::test_costo_esperado[CN-30] FAILED              [ 66%]
+tests/test_caja_negra.py::test_costo_esperado[CN-31] PASSED              [ 68%]
+tests/test_caja_negra.py::test_costo_esperado[CN-32] PASSED              [ 70%]
+tests/test_caja_negra.py::test_costo_esperado[CN-33] PASSED              [ 71%]
+tests/test_caja_negra.py::test_costo_esperado[CN-36] PASSED              [ 73%]
+tests/test_caja_negra.py::test_costo_esperado[CN-37] PASSED              [ 75%]
+tests/test_caja_negra.py::test_costo_esperado[CN-38] FAILED              [ 77%]
+tests/test_caja_negra.py::test_costo_esperado[CN-39] FAILED              [ 78%]
+tests/test_caja_negra.py::test_costo_esperado[CN-40] PASSED              [ 80%]
+tests/test_caja_negra.py::test_costo_esperado[CN-41] FAILED              [ 82%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-01] PASSED [ 84%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-02] PASSED [ 85%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-13] FAILED [ 87%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-14] FAILED [ 89%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-17] FAILED [ 91%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-18] FAILED [ 92%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-23] FAILED [ 94%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-34] FAILED [ 96%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-35] FAILED [ 98%]
+tests/test_caja_negra.py::test_CN_42_mensaje_de_peso_invalido FAILED     [100%]
+
+================================== FAILURES ===================================
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_blanca.py:55: Failed: DID NOT RAISE ValueError
+E   AssertionError: assert 8500 == 8600
+     +  where 8500 = calc(5, 'urbana', 'frecuente', 1)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_blanca.py:66: AssertionError: assert 8500 == 8600
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_blanca.py:82: Failed: DID NOT RAISE ValueError
+E   AssertionError: assert 36900 == 37000
+     +  where 36900 = calc(44.99, 'urbana', 'normal', 1, None)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 36900 == 37000
+E   AssertionError: assert 9000 == 11000
+     +  where 9000 = calc(5, 'urbana', 'normal', 6, None)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 9000 == 11000
+E   AssertionError: assert 8500 == 8600
+     +  where 8500 = calc(5, 'urbana', 'frecuente', 1, None)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 8500 == 8600
+E   AssertionError: assert 7600 == 7700
+     +  where 7600 = calc(5, 'urbana', 'frecuente', 1, 'ENVIO10')
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 7600 == 7700
+E   AssertionError: assert 7200 == 7300
+     +  where 7200 = calc(5, 'urbana', 'vip', 1, 'ENVIO10')
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 7200 == 7300
+E   AssertionError: assert 10400 == 10500
+     +  where 10400 = calc(5, 'urbana', 'frecuente', 7, None)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 10400 == 10500
+E   AssertionError: assert 8700 == 10400
+     +  where 8700 = calc(4, 'rural', 'vip', 6, 'ENVIO10')
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 8700 == 10400
+E   AssertionError: assert 13300 == 15000
+     +  where 13300 = calc(12.5, 'nacional', 'vip', 6, 'ENVIO10')
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 13300 == 15000
+E   AssertionError: assert 6800 == 8700
+     +  where 6800 = calc(3, 'rural', 'frecuente', 6, None)
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:80: AssertionError: assert 6800 == 8700
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   Failed: DID NOT RAISE ValueError
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:89: Failed: DID NOT RAISE ValueError
+E   AssertionError: assert 'peso invalido' == 'peso inválido'
+      
+      - peso inválido
+      ?         ^
+      + peso invalido
+      ?         ^
+C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_caja_negra.py:97: AssertionError: assert 'peso invalido' == 'peso inválido'
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.14.7-final-0 _______________
+
+Name        Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------
+envios.py      29      0     26      0   100%
+-------------------------------------------------------
+TOTAL          29      0     26      0   100%
+=========================== short test summary info ===========================
+FAILED tests/test_caja_blanca.py::test_CB_08_zona_que_no_existe - Failed: DID...
+FAILED tests/test_caja_blanca.py::test_CB_10_cliente_frecuente - AssertionErr...
+FAILED tests/test_caja_blanca.py::test_CB_13_cupon_que_no_existe - Failed: DI...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-11] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-21] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-25] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-26] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-28] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-30] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-38] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-39] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_costo_esperado[CN-41] - AssertionError:...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-13] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-14] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-17] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-18] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-23] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-34] - F...
+FAILED tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-35] - F...
+FAILED tests/test_caja_negra.py::test_CN_42_mensaje_de_peso_invalido - Assert...
+======================== 20 failed, 37 passed in 0.25s ========================
