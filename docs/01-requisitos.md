@@ -131,7 +131,8 @@ Criterios de aceptación:
 ## 1.4 Matriz de trazabilidad
 
 Los casos `CN-xx` son de caja negra (Parte 3) y los `CB-xx` de caja blanca
-(Parte 4). Los `HP-xx` se agregan en la Parte 8.
+(Parte 4). La última fila (R9, casos `HP-xx`) se agregó con la solicitud de
+cambio de la Parte 8.
 
 | Requisito | Historia | Criterios | Casos de prueba |
 |-----------|----------|-----------|-----------------|
@@ -143,3 +144,4 @@ Los casos `CN-xx` son de caja negra (Parte 3) y los `CB-xx` de caja blanca
 | R6 descuentos | HU-03 | CA-03.3, CA-03.4 | CN-24 a CN-33, CN-37, CN-38, CN-40, CB-10, CB-11, CB-12 |
 | R7 cupón inexistente | HU-03 | CA-03.5 | CN-34, CN-35, CB-13 |
 | R8 mínimo y redondeo | HU-02 | CA-02.5, CA-02.6 | CN-09, CN-11, CN-25, CN-26, CN-28, CN-30, CN-31, CN-36, CN-37, CB-14 |
+| R9 hora pico (Parte 8) | HU-04 | CA-04.1 a CA-04.5 | HP-01 a HP-15 |

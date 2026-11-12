@@ -142,7 +142,7 @@ Las pruebas se confirmaron **antes** de tocar `envios.py`. Resultado: fallan
 las que usan `hora`, porque el parámetro todavía no existe:
 
 ```text
-C:\Users\Acer\Downloads\parcial de ingeneria\repo\tests\test_hora_pico.py:50: TypeError: calcular_costo() got an unexpected keyword argument 'hora'
+$ python -m pytest tests/test_hora_pico.py --tb=line -q
 =========================== short test summary info ===========================
 FAILED tests/test_hora_pico.py::test_costo_con_hora[HP-01] - TypeError: calcu...
 FAILED tests/test_hora_pico.py::test_costo_con_hora[HP-02] - TypeError: calcu...
@@ -160,6 +160,12 @@ FAILED tests/test_hora_pico.py::test_hora_invalida_lanza_error[HP-09] - TypeE...
 FAILED tests/test_hora_pico.py::test_hora_invalida_lanza_error[HP-14] - TypeE...
 14 failed, 1 passed in 0.05s
 ```
+
+Captura del reporte de pytest en ese mismo commit, con toda la suite: las 14
+pruebas nuevas en rojo y las 89 restantes en verde (agregar las pruebas no
+rompe la regresión).
+
+![Reporte de pytest con las pruebas de hora pico escritas primero: 14 fallan](img/pruebas-hora-pico-primero.png)
 
 **Paso 2 - Implementar.**
 
