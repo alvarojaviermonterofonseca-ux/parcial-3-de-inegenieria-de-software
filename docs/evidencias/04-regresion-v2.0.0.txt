@@ -1,0 +1,108 @@
+$ python -m pytest -v --tb=line --cov=envios --cov-branch --cov-report=term-missing
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Acer\AppData\Local\Programs\Python\Python314\python.exe
+metadata: {'Python': '3.14.7', 'Platform': 'Windows-11-10.0.26300-SP0', 'Packages': {'pytest': '9.2.0', 'pluggy': '1.7.0'}, 'Plugins': {'cov': '7.1.0', 'html': '4.2.0', 'metadata': '3.1.1'}}
+rootdir: C:\Users\Acer\Downloads\parcial de ingeneria\repo
+configfile: pytest.ini
+testpaths: tests
+plugins: cov-7.1.0, html-4.2.0, metadata-3.1.1
+collecting ... collected 88 items
+
+tests/test_caja_blanca.py::test_CB_01_peso_cero_lanza_error PASSED       [  1%]
+tests/test_caja_blanca.py::test_CB_02_peso_sobre_el_tope_del_codigo_lanza_error PASSED [  2%]
+tests/test_caja_blanca.py::test_CB_03_camino_base PASSED                 [  3%]
+tests/test_caja_blanca.py::test_CB_04_tramo_1 PASSED                     [  4%]
+tests/test_caja_blanca.py::test_CB_05_tramo_3 PASSED                     [  5%]
+tests/test_caja_blanca.py::test_CB_06_zona_rural PASSED                  [  6%]
+tests/test_caja_blanca.py::test_CB_07_zona_nacional PASSED               [  7%]
+tests/test_caja_blanca.py::test_CB_08_zona_que_no_existe PASSED          [  9%]
+tests/test_caja_blanca.py::test_CB_09_fin_de_semana PASSED               [ 10%]
+tests/test_caja_blanca.py::test_CB_10_cliente_frecuente PASSED           [ 11%]
+tests/test_caja_blanca.py::test_CB_11_cliente_vip PASSED                 [ 12%]
+tests/test_caja_blanca.py::test_CB_12_cupon_envio10 PASSED               [ 13%]
+tests/test_caja_blanca.py::test_CB_13_cupon_que_no_existe PASSED         [ 14%]
+tests/test_caja_blanca.py::test_CB_14_costo_minimo PASSED                [ 15%]
+tests/test_caja_blanca.py::test_CB_15_flag_ya_no_existe PASSED           [ 17%]
+tests/test_caja_negra.py::test_costo_esperado[CN-03] PASSED              [ 18%]
+tests/test_caja_negra.py::test_costo_esperado[CN-04] PASSED              [ 19%]
+tests/test_caja_negra.py::test_costo_esperado[CN-05] PASSED              [ 20%]
+tests/test_caja_negra.py::test_costo_esperado[CN-06] PASSED              [ 21%]
+tests/test_caja_negra.py::test_costo_esperado[CN-07] PASSED              [ 22%]
+tests/test_caja_negra.py::test_costo_esperado[CN-08] PASSED              [ 23%]
+tests/test_caja_negra.py::test_costo_esperado[CN-09] PASSED              [ 25%]
+tests/test_caja_negra.py::test_costo_esperado[CN-10] PASSED              [ 26%]
+tests/test_caja_negra.py::test_costo_esperado[CN-11] PASSED              [ 27%]
+tests/test_caja_negra.py::test_costo_esperado[CN-12] PASSED              [ 28%]
+tests/test_caja_negra.py::test_costo_esperado[CN-15] PASSED              [ 29%]
+tests/test_caja_negra.py::test_costo_esperado[CN-16] PASSED              [ 30%]
+tests/test_caja_negra.py::test_costo_esperado[CN-19] PASSED              [ 31%]
+tests/test_caja_negra.py::test_costo_esperado[CN-20] PASSED              [ 32%]
+tests/test_caja_negra.py::test_costo_esperado[CN-21] PASSED              [ 34%]
+tests/test_caja_negra.py::test_costo_esperado[CN-22] PASSED              [ 35%]
+tests/test_caja_negra.py::test_costo_esperado[CN-24] PASSED              [ 36%]
+tests/test_caja_negra.py::test_costo_esperado[CN-25] PASSED              [ 37%]
+tests/test_caja_negra.py::test_costo_esperado[CN-26] PASSED              [ 38%]
+tests/test_caja_negra.py::test_costo_esperado[CN-27] PASSED              [ 39%]
+tests/test_caja_negra.py::test_costo_esperado[CN-28] PASSED              [ 40%]
+tests/test_caja_negra.py::test_costo_esperado[CN-29] PASSED              [ 42%]
+tests/test_caja_negra.py::test_costo_esperado[CN-30] PASSED              [ 43%]
+tests/test_caja_negra.py::test_costo_esperado[CN-31] PASSED              [ 44%]
+tests/test_caja_negra.py::test_costo_esperado[CN-32] PASSED              [ 45%]
+tests/test_caja_negra.py::test_costo_esperado[CN-33] PASSED              [ 46%]
+tests/test_caja_negra.py::test_costo_esperado[CN-36] PASSED              [ 47%]
+tests/test_caja_negra.py::test_costo_esperado[CN-37] PASSED              [ 48%]
+tests/test_caja_negra.py::test_costo_esperado[CN-38] PASSED              [ 50%]
+tests/test_caja_negra.py::test_costo_esperado[CN-39] PASSED              [ 51%]
+tests/test_caja_negra.py::test_costo_esperado[CN-40] PASSED              [ 52%]
+tests/test_caja_negra.py::test_costo_esperado[CN-41] PASSED              [ 53%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-01] PASSED [ 54%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-02] PASSED [ 55%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-13] PASSED [ 56%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-14] PASSED [ 57%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-17] PASSED [ 59%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-18] PASSED [ 60%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-23] PASSED [ 61%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-34] PASSED [ 62%]
+tests/test_caja_negra.py::test_entrada_invalida_lanza_error[CN-35] PASSED [ 63%]
+tests/test_caja_negra.py::test_CN_42_mensaje_de_peso_invalido PASSED     [ 64%]
+tests/test_unidades.py::test_cada_zona_aplica_su_recargo[urbana] PASSED  [ 65%]
+tests/test_unidades.py::test_cada_zona_aplica_su_recargo[rural] PASSED   [ 67%]
+tests/test_unidades.py::test_cada_zona_aplica_su_recargo[nacional] PASSED [ 68%]
+tests/test_unidades.py::test_todas_las_zonas_registradas_son_estrategias PASSED [ 69%]
+tests/test_unidades.py::test_la_estrategia_abstracta_no_se_puede_instanciar PASSED [ 70%]
+tests/test_unidades.py::test_tarifa_base[0.5-6000] PASSED                [ 71%]
+tests/test_unidades.py::test_tarifa_base[3-6000] PASSED                  [ 72%]
+tests/test_unidades.py::test_tarifa_base[3.01-9000] PASSED               [ 73%]
+tests/test_unidades.py::test_tarifa_base[10-9000] PASSED                 [ 75%]
+tests/test_unidades.py::test_tarifa_base[10.5-9400] PASSED               [ 76%]
+tests/test_unidades.py::test_tarifa_base[45-37000] PASSED                [ 77%]
+tests/test_unidades.py::test_recargo_fin_de_semana[1-0] PASSED           [ 78%]
+tests/test_unidades.py::test_recargo_fin_de_semana[5-0] PASSED           [ 79%]
+tests/test_unidades.py::test_recargo_fin_de_semana[6-2000] PASSED        [ 80%]
+tests/test_unidades.py::test_recargo_fin_de_semana[7-2000] PASSED        [ 81%]
+tests/test_unidades.py::test_descuentos_se_aplican_en_cadena PASSED      [ 82%]
+tests/test_unidades.py::test_redondear[8549.99-8500] PASSED              [ 84%]
+tests/test_unidades.py::test_redondear[8550-8600] PASSED                 [ 85%]
+tests/test_unidades.py::test_redondear[8550.01-8600] PASSED              [ 86%]
+tests/test_unidades.py::test_redondear[8649.99-8600] PASSED              [ 87%]
+tests/test_unidades.py::test_redondear[4860-5000] PASSED                 [ 88%]
+tests/test_unidades.py::test_redondear[5000-5000] PASSED                 [ 89%]
+tests/test_unidades.py::test_redondear[5049.99-5000] PASSED              [ 90%]
+tests/test_unidades.py::test_redondear[5050-5100] PASSED                 [ 92%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[0-urbana-1-None-peso inv\xe1lido] PASSED [ 93%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[45.01-urbana-1-None-peso inv\xe1lido] PASSED [ 94%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[5-lunar-1-None-zona inv\xe1lida] PASSED [ 95%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[5-urbana-0-None-d\xeda inv\xe1lido] PASSED [ 96%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[5-urbana-6.5-None-d\xeda inv\xe1lido] PASSED [ 97%]
+tests/test_unidades.py::test_validar_envio_dice_que_dato_esta_mal[5-urbana-1-NOEXISTE-cup\xf3n inv\xe1lido] PASSED [ 98%]
+tests/test_unidades.py::test_validar_envio_acepta_un_envio_correcto PASSED [100%]
+
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.14.7-final-0 _______________
+
+Name        Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------
+envios.py      71      0     12      0   100%
+-------------------------------------------------------
+TOTAL          71      0     12      0   100%
+============================= 88 passed in 0.18s ==============================

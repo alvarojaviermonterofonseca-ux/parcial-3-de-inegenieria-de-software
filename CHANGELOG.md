@@ -7,6 +7,34 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [2.0.0] - 2026-11-11
+
+### Cambiado
+
+- La función principal ahora se llama `calcular_costo(peso, zona, cliente,
+  dia, cupon=None)`. `calc` se conserva como alias.
+- El cálculo se dividió en funciones pequeñas: `validar_envio`, `tarifa_base`,
+  `recargo_fin_de_semana`, `aplicar_descuentos` y `redondear`.
+- El recargo por zona usa el patrón Estrategia (`EstrategiaZona`,
+  `ZonaUrbana`, `ZonaRural`, `ZonaNacional`).
+- Los números mágicos se reemplazaron por constantes con nombre.
+- El dinero se calcula con `Decimal` en lugar de `float`.
+- El día debe ser un entero de 1 a 7 (antes se aceptaba, por ejemplo, 6,5).
+
+### Eliminado
+
+- **Incompatible:** el parámetro `flag` de `calc` y la impresión por consola.
+  Las llamadas que lo usaban (`calc(..., flag=True)`) ahora producen
+  `TypeError`.
+- **Incompatible:** el diccionario `CONFIG`. Los valores ahora son constantes
+  del módulo (`PESO_MAXIMO_KG`, `LIMITE_TRAMO_1_KG`, ...).
+- La asignación sin efecto `t = t`.
+
+### Añadido
+
+- Pruebas de unidad de las funciones extraídas y de las estrategias
+  (`tests/test_unidades.py`).
+
 ## [1.0.1] - 2026-11-11
 
 ### Corregido
@@ -33,6 +61,7 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 - Código heredado de EnvíaYa: función `calc` con `CONFIG` lleno según el
   código estudiantil 0182310065.
 
-[Sin publicar]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v1.0.1...HEAD
+[Sin publicar]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/releases/tag/v1.0.0
