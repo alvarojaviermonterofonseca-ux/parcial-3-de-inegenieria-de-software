@@ -1,4 +1,6 @@
 $ git log --oneline --graph --all
+* 044a8e9 docs: matriz de trazabilidad completa y captura de las pruebas de hora pico fallando
+* bb3fec6 docs: capturas de la versión 2.1.0, historial de Git actualizado e informe final
 * 0255145 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
 *   8f2d3d1 merge: integra feature/hora-pico (CR-02)
 |\  

@@ -7,6 +7,12 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+### Añadido
+
+- Integración continua: GitHub Actions ejecuta la suite en cada push a `main`
+  y exige cobertura del 100 %.
+- El README enlaza cada parte del informe y resume las versiones.
+
 ## [2.1.0] - 2026-11-11
 
 ### Añadido

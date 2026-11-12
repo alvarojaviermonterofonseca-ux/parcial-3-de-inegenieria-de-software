@@ -1,5 +1,7 @@
 # Parcial 3 - Ingeniería de Software I
 
+[![pruebas](https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/actions/workflows/pruebas.yml/badge.svg)](https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/actions/workflows/pruebas.yml)
+
 Universidad de La Guajira - Ingeniería de Sistemas - Grupo B1 - 2026-2
 
 - **Estudiante:** Álvaro Javier Montero Fonseca
@@ -26,27 +28,79 @@ Reglas según la paridad:
 | B - cliente y cupón | 1 (impar) | Se aplican **ambos**: primero cliente, luego cupón |
 | F - cupón que no existe | 5 (impar) | **Es error** |
 
-## Contenido
+## Informe
+
+El informe completo está en
+[`Informe_Parcial3_0182310065.pdf`](Informe_Parcial3_0182310065.pdf). Cada
+parte también se puede leer aquí:
+
+| Parte | Documento |
+|-------|-----------|
+| 1. Requisitos y criterios de aceptación | [docs/01-requisitos.md](docs/01-requisitos.md) |
+| 2. Plan de pruebas | [docs/02-plan-de-pruebas.md](docs/02-plan-de-pruebas.md) |
+| 3. Caja negra | [docs/03-caja-negra.md](docs/03-caja-negra.md) |
+| 4. Caja blanca | [docs/04-caja-blanca.md](docs/04-caja-blanca.md) |
+| 5. Automatización, ejecución y defectos | [docs/05-automatizacion-y-defectos.md](docs/05-automatizacion-y-defectos.md) |
+| 6. Mantenimiento y refactorización | [docs/06-mantenimiento-y-refactorizacion.md](docs/06-mantenimiento-y-refactorizacion.md) |
+| 7. Gestión de configuración | [docs/07-gestion-de-configuracion.md](docs/07-gestion-de-configuracion.md) |
+| 8. Solicitud de cambio (hora pico) | [docs/08-solicitud-de-cambio.md](docs/08-solicitud-de-cambio.md) |
+
+## Versiones
+
+| Etiqueta | Qué contiene | Pruebas |
+|----------|--------------|---------|
+| `v1.0.0` | Código heredado, solo con `CONFIG` lleno | 37 de 57 pasan (7 defectos) |
+| `v1.0.1` | Defectos DEF-01 a DEF-07 corregidos | 57 de 57 |
+| `v2.0.0` | Refactorización y patrón Estrategia; se elimina `flag` | 88 de 88 |
+| `v2.1.0` | Recargo de hora pico (CR-02) | 103 de 103 |
+
+El detalle de cada versión está en [CHANGELOG.md](CHANGELOG.md).
+
+## Estructura
 
 | Ruta | Qué es |
 |------|--------|
-| `envios.py` | Cálculo del costo (versión 2.1.0) |
-| `tests/` | 103 pruebas con pytest: caja negra, caja blanca, unidad y hora pico |
-| `docs/01` a `docs/08` | Las ocho partes del informe |
-| `docs/evidencias/` y `docs/img/` | Salidas de consola, capturas y diagramas |
-| `Informe_Parcial3_0182310065.pdf` | Informe completo |
-| `CHANGELOG.md` | Historial de versiones |
-| `tools/` | Scripts que generan los diagramas y el PDF |
+| `envios.py` | Cálculo del costo del envío |
+| `tests/test_caja_negra.py` | 42 casos: particiones, valores límite y tabla de decisión |
+| `tests/test_caja_blanca.py` | 15 casos: un camino independiente cada uno |
+| `tests/test_unidades.py` | 31 pruebas de las funciones extraídas y las estrategias |
+| `tests/test_hora_pico.py` | 15 pruebas de la solicitud de cambio |
+| `docs/evidencias/` | Salidas de consola de pytest, cobertura, radon y Git |
+| `docs/img/` | Capturas, grafo de flujo y diagrama UML |
+| `tools/` | Scripts que dibujan los diagramas y arman el PDF |
+| `.github/workflows/pruebas.yml` | Ejecuta la suite en cada push |
 
-Versiones: `v1.0.0` (heredado), `v1.0.1` (defectos corregidos), `v2.0.0`
-(refactorización) y `v2.1.0` (hora pico).
+## Uso
+
+```python
+from envios import calcular_costo
+
+calcular_costo(4, "rural", "vip", 6, "ENVIO10")       # 10400
+calcular_costo(5, "rural", "normal", 1, hora=18)      # 11700 (hora pico)
+```
 
 ## Cómo ejecutar
+
+Instalar las herramientas:
 
 ```bash
 python -m pip install -r requirements-dev.txt
 ```
 
+Ejecutar las pruebas con cobertura de sentencias y de ramas:
+
 ```bash
 python -m pytest --cov=envios --cov-branch --cov-report=term-missing
+```
+
+Medir la complejidad ciclomática:
+
+```bash
+python -m radon cc -s -a envios.py
+```
+
+Volver a generar el informe en PDF (requiere Edge o Chrome):
+
+```bash
+python tools/generar_informe.py
 ```

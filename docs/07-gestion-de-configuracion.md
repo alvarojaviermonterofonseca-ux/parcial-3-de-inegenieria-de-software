@@ -39,6 +39,9 @@ Reglas que seguí:
   hicieron en orden de **prioridad** del defecto, no en orden de número.
 - Antes de integrar una rama se ejecutó toda la suite; solo se integró si no
   rompía ninguna prueba que ya pasaba.
+- Integración continua: el flujo `.github/workflows/pruebas.yml` ejecuta toda
+  la suite en GitHub Actions en cada push a `main` y falla si la cobertura
+  baja del 100 %.
 - Mensajes de commit con prefijo según el tipo de cambio: `feat`, `fix`,
   `test`, `refactor`, `docs`, `chore`.
 
@@ -139,6 +142,8 @@ cambios agrupados en **Añadido**, **Cambiado**, **Eliminado** y
 ## 7.5 Salida de `git log --oneline --graph --all`
 
 ```text
+* 044a8e9 docs: matriz de trazabilidad completa y captura de las pruebas de hora pico fallando
+* bb3fec6 docs: capturas de la versión 2.1.0, historial de Git actualizado e informe final
 * 0255145 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
 *   8f2d3d1 merge: integra feature/hora-pico (CR-02)
 |\  
@@ -228,4 +233,6 @@ Fecha y hora de cada commit (`git log --date=format:'%H:%M' --format='%ad %s'`):
 22:09 feat: recargo de hora pico del 8 % entre las 17 y las 19 (CR-02)
 22:09 merge: integra feature/hora-pico (CR-02)
 22:10 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
+22:15 docs: capturas de la versión 2.1.0, historial de Git actualizado e informe final
+23:03 docs: matriz de trazabilidad completa y captura de las pruebas de hora pico fallando
 ```
