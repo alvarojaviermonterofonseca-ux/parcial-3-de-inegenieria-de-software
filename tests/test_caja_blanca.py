@@ -88,7 +88,8 @@ def test_CB_14_costo_minimo():
     assert calc(2, "urbana", "vip", 1, "ENVIO10") == 5000
 
 
-def test_CB_15_flag_imprime_el_costo(capsys):
-    # Camino 15: flag verdadero -> imprime y devuelve el mismo costo
-    assert calc(5, "urbana", "normal", 1, None, True) == 9000
-    assert "costo:" in capsys.readouterr().out
+def test_CB_15_flag_ya_no_existe():
+    # Camino 15 de la versión 1.0.0. En la 2.0.0 se eliminó el parámetro
+    # flag: pasar un sexto argumento posicional ahora es un error de uso.
+    with pytest.raises(TypeError):
+        calc(5, "urbana", "normal", 1, None, True)
