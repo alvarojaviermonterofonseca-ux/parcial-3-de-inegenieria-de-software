@@ -48,6 +48,11 @@ FAILED tests/test_caja_negra.py::test_CN_42_mensaje_de_peso_invalido - assert 'p
 ======================== 20 failed, 37 passed in 0.59s ========================
 ```
 
+Captura del reporte de pytest (`--html`, plugin pytest-html) de esa misma
+ejecución: 20 pruebas en rojo y 37 en verde.
+
+![Reporte de pytest contra la versión 1.0.0: 20 fallan y 37 pasan](img/pruebas-v1.0.0.png)
+
 ## 5.2 Cobertura
 
 Medida con **pytest-cov** (coverage.py) con cobertura de ramas:
