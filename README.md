@@ -28,9 +28,18 @@ Reglas según la paridad:
 
 ## Contenido
 
-| Archivo | Qué es |
-|---------|--------|
-| `envios.py` | Código heredado (v1.0.0) con mi `CONFIG` |
+| Ruta | Qué es |
+|------|--------|
+| `envios.py` | Cálculo del costo (versión 2.1.0) |
+| `tests/` | 103 pruebas con pytest: caja negra, caja blanca, unidad y hora pico |
+| `docs/01` a `docs/08` | Las ocho partes del informe |
+| `docs/evidencias/` y `docs/img/` | Salidas de consola, capturas y diagramas |
+| `Informe_Parcial3_0182310065.pdf` | Informe completo |
+| `CHANGELOG.md` | Historial de versiones |
+| `tools/` | Scripts que generan los diagramas y el PDF |
+
+Versiones: `v1.0.0` (heredado), `v1.0.1` (defectos corregidos), `v2.0.0`
+(refactorización) y `v2.1.0` (hora pico).
 
 ## Cómo ejecutar
 
@@ -39,5 +48,5 @@ python -m pip install -r requirements-dev.txt
 ```
 
 ```bash
-python -m pytest
+python -m pytest --cov=envios --cov-branch --cov-report=term-missing
 ```

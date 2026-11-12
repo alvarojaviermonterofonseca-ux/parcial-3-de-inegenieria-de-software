@@ -7,6 +7,18 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
 ## [Sin publicar]
 
+## [2.1.0] - 2026-11-11
+
+### Añadido
+
+- Recargo de **hora pico** (solicitud de cambio CR-02, regla R9): nuevo
+  parámetro opcional `hora` (0 a 23) en `calcular_costo`. Entre las 17 y las
+  19, inclusive, se suma un 8 % sobre el valor con recargo de zona.
+- `hora` solo se acepta por nombre (`hora=18`). Una hora fuera de 0 a 23 lanza
+  `ValueError("hora inválida")`.
+- Pruebas HP-01 a HP-15 en `tests/test_hora_pico.py`, escritas antes de la
+  implementación.
+
 ## [2.0.0] - 2026-11-11
 
 ### Cambiado
@@ -61,7 +73,8 @@ y el proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 - Código heredado de EnvíaYa: función `calc` con `CONFIG` lleno según el
   código estudiantil 0182310065.
 
-[Sin publicar]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v2.0.0...HEAD
+[Sin publicar]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/alvarojaviermonterofonseca-ux/parcial-3-de-inegenieria-de-software/releases/tag/v1.0.0

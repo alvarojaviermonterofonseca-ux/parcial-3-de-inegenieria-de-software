@@ -1,0 +1,49 @@
+$ git log --oneline --graph --all
+*   8f2d3d1 merge: integra feature/hora-pico (CR-02)
+|\  
+| * 021fee4 feat: recargo de hora pico del 8 % entre las 17 y las 19 (CR-02)
+| * eb1d526 test: pruebas de hora pico escritas primero (CR-02, fallan)
+|/  
+* 2091e45 docs: Parte 6, CHANGELOG y evidencias de la versión 2.0.0
+*   b345a69 merge: integra refactor/estrategia
+|\  
+| * 9eaa0b6 refactor: patrón Estrategia para el recargo por zona
+| * f044c12 refactor: extrae funciones, nombra las constantes y elimina flag
+* | fd2e4bc docs: CHANGELOG y evidencias de regresión de la versión 1.0.1
+* | 1c48d51 merge: integra fix/DEF-07
+|\| 
+| * 059f836 fix(DEF-07): el mensaje de error dice "peso inválido"
+* | 98f7092 merge: integra fix/DEF-05
+|\| 
+| * 23cbbf9 fix(DEF-05): un cupón que no existe lanza error
+* | 26e24b7 merge: integra fix/DEF-03
+|\| 
+| * bfc34e9 fix(DEF-03): valida que el día esté entre 1 y 7
+* | e6413ae merge: integra fix/DEF-02
+|\| 
+| * 91e9476 fix(DEF-02): una zona que no existe lanza error
+|/  
+* 73744a4 docs: captura del reporte de pytest fallando contra v1.0.0 (Parte 5)
+*   5f89973 merge: integra fix/DEF-01
+|\  
+| * 3da56cb fix(DEF-01): rechaza envíos de más de 45 kg
+|/  
+* a9de32d docs: capturas del reporte HTML de cobertura sobre v1.0.0 (Parte 5)
+*   9f738b1 merge: integra fix/DEF-06
+|\  
+| * 99de1d2 fix(DEF-06): redondea al múltiplo de $100 más cercano
+|/  
+*   bc7f806 merge: integra fix/DEF-04
+|\  
+| * 7182ef7 fix(DEF-04): el sábado cobra el recargo de fin de semana
+|/  
+* 5dd9bec docs: reporte de 7 defectos, cobertura y métricas contra v1.0.0 (Parte 5)
+*   0b41a3d merge: integra test/suite (casos de caja negra y caja blanca)
+|\  
+| * 2573229 test: 15 caminos independientes de caja blanca y grafo de flujo (Parte 4)
+| * b9760bb test: 42 casos de caja negra con pytest (Parte 3)
+|/  
+* 3399948 docs: plan de pruebas con niveles, estrategia, riesgos y criterios (Parte 2)
+* e7ef91e docs: especificación R1-R8, historias de usuario y trazabilidad (Parte 1)
+* 05a7957 feat: código heredado de EnvíaYa con mi CONFIG (v1.0.0)
+* 5293245 Initial commit
