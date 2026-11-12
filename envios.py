@@ -4,8 +4,9 @@ Especificación del código estudiantil 0182310065 (A=3 B=1 C=0 D=0 E=6 F=5).
 Las reglas R1 a R8 están en docs/01-requisitos.md.
 
 Orden del cálculo:
-    validar -> tarifa base -> recargo de zona -> recargo de fin de semana
-    -> descuento de cliente -> descuento de cupón -> costo mínimo -> redondeo
+    validar -> tarifa base -> recargo de zona -> recargo de hora pico
+    -> recargo de fin de semana -> descuento de cliente -> descuento de cupón
+    -> costo mínimo -> redondeo
 """
 
 from abc import ABC, abstractmethod
@@ -25,6 +26,11 @@ RECARGO_NACIONAL_PCT = 50       # RN = 40 + 5*(F mod 3)
 RECARGO_FIN_DE_SEMANA = 2000    # S = 2000 + 500*(C mod 4)
 DIAS_VALIDOS = range(1, 8)      # 1 = lunes ... 7 = domingo
 DIAS_FIN_DE_SEMANA = (6, 7)     # sábado y domingo
+
+HORAS_VALIDAS = range(0, 24)
+HORA_PICO_INICIO = 17           # incluida
+HORA_PICO_FIN = 19              # incluida
+RECARGO_HORA_PICO_PCT = 8
 
 DESCUENTO_FRECUENTE_PCT = 5
 DESCUENTO_VIP_PCT = 10          # V = 10 + 5*(A mod 3)
@@ -79,8 +85,8 @@ ZONAS = {
 
 
 # --- Pasos del cálculo ------------------------------------------------------
-def validar_envio(peso, zona, dia, cupon):
-    """R1, R2 y R7: lanza ValueError si un dato del envío no es válido."""
+def validar_envio(peso, zona, dia, cupon, hora=None):
+    """R1, R2, R7 y R9: lanza ValueError si un dato del envío no es válido."""
     if not 0 < peso <= PESO_MAXIMO_KG:
         raise ValueError("peso inválido")
     if zona not in ZONAS:
@@ -89,6 +95,8 @@ def validar_envio(peso, zona, dia, cupon):
         raise ValueError("día inválido")
     if cupon is not None and cupon not in DESCUENTOS_CUPON_PCT:
         raise ValueError("cupón inválido")
+    if hora is not None and hora not in HORAS_VALIDAS:
+        raise ValueError("hora inválida")
 
 
 def tarifa_base(peso):
@@ -99,6 +107,13 @@ def tarifa_base(peso):
         return Decimal(TARIFA_TRAMO_2)
     kilos_adicionales = Decimal(str(peso)) - LIMITE_TRAMO_2_KG
     return TARIFA_TRAMO_2 + kilos_adicionales * TARIFA_KG_ADICIONAL
+
+
+def aplicar_hora_pico(valor, hora):
+    """R9: +8 % entre las 17 y las 19, sobre el valor que ya trae la zona."""
+    if hora is not None and HORA_PICO_INICIO <= hora <= HORA_PICO_FIN:
+        return sumar_porcentaje(valor, RECARGO_HORA_PICO_PCT)
+    return valor
 
 
 def recargo_fin_de_semana(dia):
@@ -121,11 +136,16 @@ def redondear(valor):
     return int(multiplos) * MULTIPLO_REDONDEO
 
 
-def calcular_costo(peso, zona, cliente, dia, cupon=None):
-    """Devuelve el costo del envío en pesos, como entero múltiplo de 100."""
-    validar_envio(peso, zona, dia, cupon)
+def calcular_costo(peso, zona, cliente, dia, cupon=None, *, hora=None):
+    """Devuelve el costo del envío en pesos, como entero múltiplo de 100.
+
+    `hora` (0 a 23) es opcional y solo se acepta por nombre. Si no se indica,
+    no se cobra recargo de hora pico.
+    """
+    validar_envio(peso, zona, dia, cupon, hora)
     valor = tarifa_base(peso)
     valor = ZONAS[zona].aplicar_recargo(valor)
+    valor = aplicar_hora_pico(valor, hora)        # después de la zona
     valor = valor + recargo_fin_de_semana(dia)    # antes de los descuentos
     valor = aplicar_descuentos(valor, cliente, cupon)
     return redondear(valor)
