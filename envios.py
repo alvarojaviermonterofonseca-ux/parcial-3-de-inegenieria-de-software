@@ -1,6 +1,7 @@
 # envios.py
 
 CONFIG = {
+    "PMAX": 45,                # 30 + 5*A = 30 + 5*3, en kg
     "L1": 3,                   # 2 + (B mod 3) = 2 + (1 mod 3)
     "L2": 10,                  # 10 + C = 10 + 0
     "RECARGO_RURAL": 0.20,     # 10 + 5*(E mod 4) = 20 %
@@ -11,7 +12,7 @@ CONFIG = {
 
 
 def calc(p, z, c, d, cup=None, flag=False):
-    if p <= 0 or p > 50:
+    if p <= 0 or p > CONFIG["PMAX"]:
         raise ValueError("peso invalido")
     if p <= CONFIG["L1"]:
         t = 6000
