@@ -200,6 +200,13 @@ TOTAL          82      0     16      0   100%
 103 passed in 0.57s
 ```
 
+Capturas sobre la versión 2.1.0: reporte de pytest con las 103 pruebas en
+verde y reporte de cobertura.
+
+![Reporte de pytest sobre la versión 2.1.0: pasan las 103 pruebas](img/pruebas-v2.1.0.png)
+
+![Resumen de cobertura de la versión 2.1.0](img/cobertura-v2.1.0-resumen.png)
+
 ## 8.5 Nueva versión
 
 | | |

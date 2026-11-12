@@ -139,6 +139,7 @@ cambios agrupados en **Añadido**, **Cambiado**, **Eliminado** y
 ## 7.5 Salida de `git log --oneline --graph --all`
 
 ```text
+* 0255145 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
 *   8f2d3d1 merge: integra feature/hora-pico (CR-02)
 |\  
 | * 021fee4 feat: recargo de hora pico del 8 % entre las 17 y las 19 (CR-02)
@@ -226,4 +227,5 @@ Fecha y hora de cada commit (`git log --date=format:'%H:%M' --format='%ad %s'`):
 22:09 test: pruebas de hora pico escritas primero (CR-02, fallan)
 22:09 feat: recargo de hora pico del 8 % entre las 17 y las 19 (CR-02)
 22:09 merge: integra feature/hora-pico (CR-02)
+22:10 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
 ```

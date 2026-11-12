@@ -1,4 +1,5 @@
 $ git log --oneline --graph --all
+* 0255145 docs: Partes 7 y 8, CHANGELOG 2.1.0, README e informe en PDF
 *   8f2d3d1 merge: integra feature/hora-pico (CR-02)
 |\  
 | * 021fee4 feat: recargo de hora pico del 8 % entre las 17 y las 19 (CR-02)
