@@ -8,6 +8,7 @@ Orden del cálculo:
     -> descuento de cliente -> descuento de cupón -> costo mínimo -> redondeo
 """
 
+from abc import ABC, abstractmethod
 from decimal import ROUND_HALF_UP, Decimal
 
 # --- Parámetros de mi especificación ---------------------------------------
@@ -19,7 +20,6 @@ TARIFA_TRAMO_1 = 6000
 TARIFA_TRAMO_2 = 9000
 TARIFA_KG_ADICIONAL = 800       # por cada kg sobre LIMITE_TRAMO_2_KG
 
-ZONAS_VALIDAS = ("urbana", "rural", "nacional")
 RECARGO_RURAL_PCT = 20          # RR = 10 + 5*(E mod 4)
 RECARGO_NACIONAL_PCT = 50       # RN = 40 + 5*(F mod 3)
 RECARGO_FIN_DE_SEMANA = 2000    # S = 2000 + 500*(C mod 4)
@@ -47,12 +47,43 @@ def restar_porcentaje(valor, porcentaje):
     return valor - valor * porcentaje / 100
 
 
+# --- Patrón Estrategia: recargo por zona (R4) ------------------------------
+class EstrategiaZona(ABC):
+    """Interfaz común: cada zona sabe cómo recargar el valor del envío."""
+
+    @abstractmethod
+    def aplicar_recargo(self, valor):
+        """Devuelve el valor con el recargo de la zona."""
+
+
+class ZonaUrbana(EstrategiaZona):
+    def aplicar_recargo(self, valor):
+        return valor
+
+
+class ZonaRural(EstrategiaZona):
+    def aplicar_recargo(self, valor):
+        return sumar_porcentaje(valor, RECARGO_RURAL_PCT)
+
+
+class ZonaNacional(EstrategiaZona):
+    def aplicar_recargo(self, valor):
+        return sumar_porcentaje(valor, RECARGO_NACIONAL_PCT)
+
+
+ZONAS = {
+    "urbana": ZonaUrbana(),
+    "rural": ZonaRural(),
+    "nacional": ZonaNacional(),
+}
+
+
 # --- Pasos del cálculo ------------------------------------------------------
 def validar_envio(peso, zona, dia, cupon):
     """R1, R2 y R7: lanza ValueError si un dato del envío no es válido."""
     if not 0 < peso <= PESO_MAXIMO_KG:
         raise ValueError("peso inválido")
-    if zona not in ZONAS_VALIDAS:
+    if zona not in ZONAS:
         raise ValueError("zona inválida")
     if dia not in DIAS_VALIDOS:
         raise ValueError("día inválido")
@@ -68,15 +99,6 @@ def tarifa_base(peso):
         return Decimal(TARIFA_TRAMO_2)
     kilos_adicionales = Decimal(str(peso)) - LIMITE_TRAMO_2_KG
     return TARIFA_TRAMO_2 + kilos_adicionales * TARIFA_KG_ADICIONAL
-
-
-def aplicar_recargo_zona(valor, zona):
-    """R4: recargo según la zona de destino."""
-    if zona == "rural":
-        return sumar_porcentaje(valor, RECARGO_RURAL_PCT)
-    if zona == "nacional":
-        return sumar_porcentaje(valor, RECARGO_NACIONAL_PCT)
-    return valor
 
 
 def recargo_fin_de_semana(dia):
@@ -103,7 +125,7 @@ def calcular_costo(peso, zona, cliente, dia, cupon=None):
     """Devuelve el costo del envío en pesos, como entero múltiplo de 100."""
     validar_envio(peso, zona, dia, cupon)
     valor = tarifa_base(peso)
-    valor = aplicar_recargo_zona(valor, zona)
+    valor = ZONAS[zona].aplicar_recargo(valor)
     valor = valor + recargo_fin_de_semana(dia)    # antes de los descuentos
     valor = aplicar_descuentos(valor, cliente, cupon)
     return redondear(valor)
