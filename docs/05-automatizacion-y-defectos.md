@@ -63,6 +63,17 @@ TOTAL          29      0     26      0   100%
 - Cobertura de sentencias: **29 / 29 = 100 %**
 - Cobertura de ramas: **26 / 26 = 100 %**
 
+Capturas del reporte HTML de coverage.py
+(`python -m pytest --cov=envios --cov-branch --cov-report=html`) sobre la
+versión 1.0.0:
+
+![Resumen de cobertura de la versión 1.0.0](img/cobertura-v1.0.0-resumen.png)
+
+![Cobertura línea por línea de envios.py en la versión 1.0.0](img/cobertura-v1.0.0-envios.png)
+
+Todas las líneas quedan marcadas en verde (ejecutadas) y no hay ramas
+parciales.
+
 ## 5.3 Registro de defectos
 
 Qué líneas del código heredado **son** defecto y cuáles **no** depende de mi
